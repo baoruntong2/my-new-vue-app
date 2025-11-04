@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* 在base层设置默认字体 */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+/* 全局样式 */
+body {
+  @apply bg-gray-50 text-dark;
+}
+
+/* 自定义组件基础样式 */
+.btn-primary {
+  @apply bg-primary text-white px-4 py-2 rounded-md hover:bg-primary/90 transition-all;
+}
+.btn-secondary {
+  @apply bg-secondary text-white px-4 py-2 rounded-md hover:bg-secondary/90 transition-all;
+}
+.card {
+  @apply bg-white rounded-lg shadow-md p-6 transition-all hover:shadow-lg;
+}
+.container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}

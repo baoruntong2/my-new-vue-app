@@ -1,0 +1,153 @@
+<template>
+  <div class="container mx-auto py-6">
+    <div class="mb-8">
+      <h2 class="text-2xl font-bold text-gray-800 mb-2">外币兑换服务</h2>
+      <p class="text-gray-600">通过银行柜台提供主要国际货币的买入和卖出服务，汇率按当日银行挂牌汇率执行</p>
+    </div>
+
+    <!-- 当日汇率信息 -->
+    <div class="card mb-8">
+      <div class="p-6">
+        <h3 class="text-lg font-semibold mb-4">当日汇率信息</h3>
+        <div class="overflow-x-auto">
+          <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+              <tr>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">货币</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">买入价</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">卖出价</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">中间价</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">更新时间</th>
+              </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="flex items-center">
+                    <span class="font-medium text-gray-900">USD/CNY</span>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-gray-700">7.2150</td>
+                <td class="px-6 py-4 whitespace-nowrap text-gray-700">7.2380</td>
+                <td class="px-6 py-4 whitespace-nowrap text-gray-700">7.2265</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2023-11-15 09:30</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="flex items-center">
+                    <span class="font-medium text-gray-900">EUR/CNY</span>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-gray-700">7.8520</td>
+                <td class="px-6 py-4 whitespace-nowrap text-gray-700">7.8850</td>
+                <td class="px-6 py-4 whitespace-nowrap text-gray-700">7.8685</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2023-11-15 09:30</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="flex items-center">
+                    <span class="font-medium text-gray-900">GBP/CNY</span>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-gray-700">9.1250</td>
+                <td class="px-6 py-4 whitespace-nowrap text-gray-700">9.1630</td>
+                <td class="px-6 py-4 whitespace-nowrap text-gray-700">9.1440</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2023-11-15 09:30</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="flex items-center">
+                    <span class="font-medium text-gray-900">JPY/CNY</span>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-gray-700">0.0485</td>
+                <td class="px-6 py-4 whitespace-nowrap text-gray-700">0.0488</td>
+                <td class="px-6 py-4 whitespace-nowrap text-gray-700">0.0486</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2023-11-15 09:30</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- 外币兑换表单 -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="card p-6">
+        <h3 class="text-xl font-semibold mb-4">外币兑换</h3>
+        <form>
+          <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700 mb-1">兑换类型</label>
+            <div class="flex space-x-4">
+              <label class="inline-flex items-center">
+                <input type="radio" name="exchangeType" value="buy" class="form-radio text-primary" checked>
+                <span class="ml-2">购汇（买入外币）</span>
+              </label>
+              <label class="inline-flex items-center">
+                <input type="radio" name="exchangeType" value="sell" class="form-radio text-primary">
+                <span class="ml-2">结汇（卖出外币）</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700 mb-1">外币种类</label>
+            <select class="form-select w-full">
+              <option value="USD">美元 (USD)</option>
+              <option value="EUR">欧元 (EUR)</option>
+              <option value="GBP">英镑 (GBP)</option>
+              <option value="JPY">日元 (JPY)</option>
+              <option value="HKD">港币 (HKD)</option>
+            </select>
+          </div>
+
+          <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700 mb-1">兑换金额</label>
+            <input type="number" class="form-input w-full" placeholder="请输入金额">
+          </div>
+
+          <div class="mb-6">
+            <label class="block text-sm font-medium text-gray-700 mb-1">资金用途</label>
+            <select class="form-select w-full">
+              <option value="travel">境外旅游</option>
+              <option value="study">境外留学</option>
+              <option value="business">商务考察</option>
+              <option value="investment">境外投资</option>
+              <option value="other">其他用途</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn-primary w-full">
+            确认兑换
+          </button>
+        </form>
+      </div>
+
+      <div class="card p-6">
+        <h3 class="text-xl font-semibold mb-4">兑换须知</h3>
+        <div class="space-y-4 text-gray-700">
+          <div>
+            <h4 class="font-medium mb-1">个人年度购汇额度</h4>
+            <p class="text-sm">每人每年可购汇等值5万美元（含）以下，超过年度总额的需提供相关证明材料。</p>
+          </div>
+          <div>
+            <h4 class="font-medium mb-1">所需证件</h4>
+            <p class="text-sm">境内个人需提供有效身份证件；境外个人需提供护照、港澳居民来往内地通行证、台湾居民来往大陆通行证等有效证件。</p>
+          </div>
+          <div>
+            <h4 class="font-medium mb-1">汇率说明</h4>
+            <p class="text-sm">页面显示汇率仅供参考，实际交易汇率以银行柜台交易时的实时汇率为准。</p>
+          </div>
+          <div>
+            <h4 class="font-medium mb-1">办理时间</h4>
+            <p class="text-sm">工作日 9:00-17:00（节假日除外），大额兑换建议提前预约。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+// 外币兑换服务组件逻辑
+</script>

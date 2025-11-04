@@ -1,0 +1,141 @@
+<template>
+  <div class="container mx-auto py-6">
+    <div class="mb-8">
+      <h2 class="text-2xl font-bold text-gray-800 mb-2">假币鉴定服务</h2>
+      <p class="text-gray-600">为客户提供疑似假币的专业鉴定预约服务</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+      <div class="md:col-span-3 card p-6">
+        <h3 class="text-xl font-semibold mb-4">鉴定预约</h3>
+        <form>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">姓名</label>
+              <input type="text" class="form-input w-full" placeholder="请输入您的姓名">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">联系电话</label>
+              <input type="tel" class="form-input w-full" placeholder="请输入手机号码">
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700 mb-1">证件类型</label>
+            <select class="form-select w-full">
+              <option value="id">居民身份证</option>
+              <option value="passport">护照</option>
+              <option value="other">其他有效证件</option>
+            </select>
+          </div>
+
+          <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700 mb-1">证件号码</label>
+            <input type="text" class="form-input w-full" placeholder="请输入证件号码">
+          </div>
+
+          <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700 mb-1">疑似假币信息</label>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs text-gray-500 mb-1">币种</label>
+                <select class="form-select w-full">
+                  <option value="CNY">人民币</option>
+                  <option value="USD">美元</option>
+                  <option value="EUR">欧元</option>
+                  <option value="GBP">英镑</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs text-gray-500 mb-1">面额</label>
+                <select class="form-select w-full">
+                  <option value="100">100元</option>
+                  <option value="50">50元</option>
+                  <option value="20">20元</option>
+                  <option value="10">10元</option>
+                  <option value="5">5元</option>
+                  <option value="1">1元</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700 mb-1">发现假币特征描述</label>
+            <textarea class="form-textarea w-full" rows="3" placeholder="请简要描述假币的特征，如印刷质量、水印、安全线等"></textarea>
+          </div>
+
+          <div class="mb-6">
+            <label class="block text-sm font-medium text-gray-700 mb-1">预约鉴定网点及时间</label>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs text-gray-500 mb-1">选择网点</label>
+                <select class="form-select w-full">
+                  <option value="branch1">总行营业部</option>
+                  <option value="branch2">城东支行</option>
+                  <option value="branch3">城西支行</option>
+                  <option value="branch4">城南支行</option>
+                  <option value="branch5">城北支行</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs text-gray-500 mb-1">预约日期</label>
+                <input type="date" class="form-input w-full">
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-primary w-full">
+            提交鉴定预约
+          </button>
+        </form>
+      </div>
+
+      <div class="md:col-span-2 space-y-6">
+        <div class="card p-6">
+          <h3 class="text-xl font-semibold mb-4">假币鉴定须知</h3>
+          <ul class="space-y-3 text-gray-700 text-sm">
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-red-500 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.586a2 2 0 001.414-.586l3.586-3.586a2 2 0 000-2.828l-3.586-3.586a2 2 0 00-2.828 0L11 7.586V4a2 2 0 00-4 0v3.586L5.05 9.05a2 2 0 000 2.828l3.586 3.586a2 2 0 002.828 0L12 12.414V16z"></path>
+              </svg>
+              <span>根据《中国人民银行假币收缴、鉴定管理办法》，凡发现疑似假币，应及时到银行网点进行专业鉴定</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-red-500 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.586a2 2 0 001.414-.586l3.586-3.586a2 2 0 000-2.828l-3.586-3.586a2 2 0 00-2.828 0L11 7.586V4a2 2 0 00-4 0v3.586L5.05 9.05a2 2 0 000 2.828l3.586 3.586a2 2 0 002.828 0L12 12.414V16z"></path>
+              </svg>
+              <span>办理假币鉴定需携带本人有效身份证件原件及疑似假币实物</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-red-500 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.586a2 2 0 001.414-.586l3.586-3.586a2 2 0 000-2.828l-3.586-3.586a2 2 0 00-2.828 0L11 7.586V4a2 2 0 00-4 0v3.586L5.05 9.05a2 2 0 000 2.828l3.586 3.586a2 2 0 002.828 0L12 12.414V16z"></path>
+              </svg>
+              <span>经鉴定为假币的，银行将按规定予以收缴，并出具《假币收缴凭证》</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-red-500 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.586a2 2 0 001.414-.586l3.586-3.586a2 2 0 000-2.828l-3.586-3.586a2 2 0 00-2.828 0L11 7.586V4a2 2 0 00-4 0v3.586L5.05 9.05a2 2 0 000 2.828l3.586 3.586a2 2 0 002.828 0L12 12.414V16z"></path>
+              </svg>
+              <span>客户对鉴定结果有异议的，可在收到《假币收缴凭证》之日起3个工作日内，向鉴定机构申请再鉴定</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-red-50 p-5 rounded-lg border border-red-100">
+          <h4 class="font-semibold text-red-800 mb-2 flex items-center">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.586a2 2 0 001.414-.586l3.586-3.586a2 2 0 000-2.828l-3.586-3.586a2 2 0 00-2.828 0L11 7.586V4a2 2 0 00-4 0v3.586L5.05 9.05a2 2 0 000 2.828l3.586 3.586a2 2 0 002.828 0L12 12.414V16z"></path>
+            </svg>
+            重要提示
+          </h4>
+          <p class="text-red-700 text-sm">请勿自行在疑似假币上做任何标记或涂改，以免影响鉴定结果。如发现大量假币或有制造、贩卖假币线索，请立即向公安机关报案。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+// 假币鉴定服务组件逻辑
+</script>
