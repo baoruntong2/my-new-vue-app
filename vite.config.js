@@ -1,5 +1,6 @@
 import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import { viteMockServe } from 'vite-plugin-mock'
 import path from 'path'
 
 export default defineConfig(({ mode }) => {
@@ -7,7 +8,14 @@ export default defineConfig(({ mode }) => {
   
   return {
     plugins: [
-      vue()
+      vue(),
+      viteMockServe({
+        mockPath: 'src/mock',
+        localEnabled: mode === 'development' || mode === 'test',
+        prodEnabled: false,
+        watchFiles: true,
+        supportTs: false
+      })
     ],
     resolve: {
       alias: {
@@ -17,7 +25,9 @@ export default defineConfig(({ mode }) => {
     server: {
       port: 8080,
       open: true,
-      proxy: {
+      // 注意：vite-plugin-mock 会自动处理 /api 请求，无需代理
+      // 如果 VITE_API_URL 存在且不是本地，则使用代理
+      proxy: env.VITE_API_URL && !env.VITE_API_URL.includes('localhost') ? {
         '/api': {
           target: env.VITE_API_URL,
           timeout: 5000,
@@ -25,7 +35,7 @@ export default defineConfig(({ mode }) => {
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/api/, '')
         }
-      }
+      } : {}
     },
     build: {
       outDir: 'dist',
@@ -51,7 +61,8 @@ export default defineConfig(({ mode }) => {
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: '@import "@/assets/styles/variables.scss";'
+          // SCSS变量文件（如果存在）
+          // additionalData: '@import "@/assets/styles/variables.scss";'
         }
       }
     }

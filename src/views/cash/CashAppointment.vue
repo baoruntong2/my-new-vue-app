@@ -134,6 +134,16 @@ const handleNext = () => {
     }
   };
 
+  const handleError = (error) => {
+    console.error('步骤错误:', error);
+    errorMessage.value = error.message || '操作失败，请稍后重试';
+    window.$notify?.error({
+      title: '错误',
+      message: errorMessage.value,
+      duration: 5000
+    });
+  };
+
   // 监听步骤变化，保存当前步骤到store
   watch(currentStep, (newStep) => {
     appointmentStore.setCurrentStep(newStep);

@@ -42,11 +42,11 @@ const routes = [
 
   {
     path: '/cash',
-    name: 'CashBusiness',
     component: MainLayout,
     children: [
       {
         path: '',
+        name: 'CashBusiness',
         component: CashBusiness
       },
       {
@@ -76,11 +76,11 @@ const routes = [
   },
   {
     path: '/noncash',
-    name: 'NonCashBusiness',
     component: MainLayout,
     children: [
       {
         path: '',
+        name: 'NonCashBusiness',
         component: NonCashBusiness
       },
       {
